@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+<defs>
+<filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+  <feGaussianBlur stdDeviation="1.6" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<filter id="glowBig" x="-80%" y="-80%" width="260%" height="260%">
+  <feGaussianBlur stdDeviation="3.4" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<radialGradient id="bgE" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#9df4ff" stop-opacity="0.3"/><stop offset="1" stop-color="#9df4ff" stop-opacity="0"/></radialGradient>
+</defs>
+<circle cx="64" cy="64" r="60" fill="url(#bgE)" /><polygon points="64,6 114.23,35 114.23,93 64,122 13.77,93 13.77,35" fill="#08111f" /><polygon points="64,14.12 107.2,39.06 107.2,88.94 64,113.88 20.8,88.94 20.8,39.06" fill="none" stroke="#9df4ff" stroke-width="3.5" opacity="0.95"/><g opacity="0.2" stroke="#9df4ff" stroke-width="0.8" fill="none" stroke-linecap="round"><path d="M107.98 44.32 L107.98 63.63 L103.98 63.63"/><circle cx="103.98" cy="63.63" r="1" fill="#9df4ff" stroke="none"/><path d="M85.51 23.83 L90.42 23.83 L90.42 19.83"/><circle cx="90.42" cy="19.83" r="1" fill="#9df4ff" stroke="none"/><path d="M42.84 95.07 L42.84 108 L38.84 108"/><circle cx="38.84" cy="108" r="1" fill="#9df4ff" stroke="none"/><path d="M43.98 51.9 L68.31 51.9 L68.31 55.9"/><circle cx="68.31" cy="55.9" r="1" fill="#9df4ff" stroke="none"/><path d="M41 25.06 L41 56.86 L45 56.86"/><circle cx="45" cy="56.86" r="1" fill="#9df4ff" stroke="none"/><path d="M57.32 92.09 L81.14 92.09 L81.14 96.09"/><circle cx="81.14" cy="96.09" r="1" fill="#9df4ff" stroke="none"/><path d="M42.07 71.81 L42.07 81.88 L46.07 81.88"/><circle cx="46.07" cy="81.88" r="1" fill="#9df4ff" stroke="none"/></g><path d="M50 44 L34 64 L50 84" fill="none" stroke="#9df4ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M78 44 L94 64 L78 84" fill="none" stroke="#9df4ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="72" y1="40" x2="56" y2="88" stroke="#ff3fa4" stroke-width="5" stroke-linecap="round" /><text x="64" y="116" fill="#9df4ff" font-family="'Courier New',monospace" font-size="10" font-weight="bold" text-anchor="middle" >PROGRAMADOR</text>
+</svg>

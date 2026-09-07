@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+<defs>
+<filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+  <feGaussianBlur stdDeviation="1.6" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<filter id="glowBig" x="-80%" y="-80%" width="260%" height="260%">
+  <feGaussianBlur stdDeviation="3.4" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+
+</defs>
+<rect x="3" y="8" width="42" height="32" rx="4" fill="#0a1024" /><path d="M17 18 L11 24 L17 30" fill="none" stroke="#4dff9f" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M31 18 L37 24 L31 30" fill="none" stroke="#4dff9f" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><line x1="27" y1="16" x2="21" y2="32" stroke="#22e6ff" stroke-width="3" stroke-linecap="round" />
+</svg>

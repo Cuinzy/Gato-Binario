@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+<defs>
+<filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+  <feGaussianBlur stdDeviation="1.6" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<filter id="glowBig" x="-80%" y="-80%" width="260%" height="260%">
+  <feGaussianBlur stdDeviation="3.4" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+
+</defs>
+<ellipse cx="24" cy="27" rx="13" ry="15" fill="#ff3fa4" /><ellipse cx="24" cy="27" rx="9" ry="11" fill="#a31560" opacity="0.5"/><circle cx="24" cy="12" r="7" fill="#ff3fa4" /><circle cx="21" cy="11" r="2" fill="#ffd23f" /><circle cx="27" cy="11" r="2" fill="#ffd23f" /><line x1="19" y1="6" x2="15" y2="1" stroke="#ff3fa4" stroke-width="2.5" stroke-linecap="round" /><line x1="29" y1="6" x2="33" y2="1" stroke="#ff3fa4" stroke-width="2.5" stroke-linecap="round" /><line x1="11" y1="20" x2="4" y2="16" stroke="#a31560" stroke-width="3" stroke-linecap="round" /><line x1="11" y1="28" x2="4" y2="30" stroke="#a31560" stroke-width="3" stroke-linecap="round" /><line x1="12" y1="36" x2="6" y2="42" stroke="#a31560" stroke-width="3" stroke-linecap="round" /><line x1="37" y1="20" x2="44" y2="16" stroke="#a31560" stroke-width="3" stroke-linecap="round" /><line x1="37" y1="28" x2="44" y2="30" stroke="#a31560" stroke-width="3" stroke-linecap="round" /><line x1="36" y1="36" x2="42" y2="42" stroke="#a31560" stroke-width="3" stroke-linecap="round" />
+</svg>
