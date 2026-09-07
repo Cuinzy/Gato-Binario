@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+<defs>
+<filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+  <feGaussianBlur stdDeviation="1.6" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<filter id="glowBig" x="-80%" y="-80%" width="260%" height="260%">
+  <feGaussianBlur stdDeviation="3.4" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<radialGradient id="portalGlow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#22e6ff" stop-opacity="0.5"/><stop offset="0.7" stop-color="#ff3fa4" stop-opacity="0.25"/><stop offset="1" stop-color="#ff3fa4" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="32" cy="32" rx="21" ry="30" fill="url(#portalGlow)" /><ellipse cx="32" cy="32" rx="17" ry="27" fill="#05070f" /><ellipse cx="32" cy="32" rx="4.96" ry="8" fill="none" stroke="#ff3fa4" stroke-width="2.4" opacity="0.85"/><ellipse cx="32" cy="32" rx="8.37" ry="13.5" fill="none" stroke="#22e6ff" stroke-width="2.4" opacity="0.64"/><ellipse cx="32" cy="32" rx="11.78" ry="19" fill="none" stroke="#ff3fa4" stroke-width="2.4" opacity="0.43"/><ellipse cx="32" cy="32" rx="15.19" ry="24.5" fill="none" stroke="#22e6ff" stroke-width="2.4" opacity="0.21"/><ellipse cx="32" cy="32" rx="17" ry="27" fill="none" stroke="#22e6ff" stroke-width="2.6" filter="url(#glow)"/><text x="32" y="36" fill="#9df4ff" font-family="'Courier New',monospace" font-size="8" font-weight="bold" text-anchor="middle" opacity="0.8">100</text>
+</svg>

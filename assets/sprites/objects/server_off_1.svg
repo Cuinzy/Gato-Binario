@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+<defs>
+<filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+  <feGaussianBlur stdDeviation="1.6" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<filter id="glowBig" x="-80%" y="-80%" width="260%" height="260%">
+  <feGaussianBlur stdDeviation="3.4" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<radialGradient id="srvGlow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#4dff9f" stop-opacity="0.4"/><stop offset="1" stop-color="#4dff9f" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="32" cy="60" rx="20" ry="3.5" fill="#000" opacity="0.4"/><rect x="12" y="8" width="40" height="50" rx="5" fill="#0a1226" /><rect x="14" y="10" width="36" height="46" rx="4" fill="#121a35" /><rect x="16" y="12" width="32" height="42" rx="3" fill="#0d1832" /><circle cx="22" cy="18" r="1.8" fill="#22e6ff" filter="url(#glow)"/><circle cx="29" cy="18" r="1.8" fill="#2b3a6b" /><circle cx="36" cy="18" r="1.8" fill="#22e6ff" filter="url(#glow)"/><circle cx="22" cy="25" r="1.8" fill="#22e6ff" filter="url(#glow)"/><circle cx="29" cy="25" r="1.8" fill="#22e6ff" filter="url(#glow)"/><circle cx="36" cy="25" r="1.8" fill="#2b3a6b" /><circle cx="22" cy="32" r="1.8" fill="#22e6ff" filter="url(#glow)"/><circle cx="29" cy="32" r="1.8" fill="#22e6ff" filter="url(#glow)"/><circle cx="36" cy="32" r="1.8" fill="#2b3a6b" /><circle cx="22" cy="39" r="1.8" fill="#22e6ff" filter="url(#glow)"/><circle cx="29" cy="39" r="1.8" fill="#22e6ff" filter="url(#glow)"/><circle cx="36" cy="39" r="1.8" fill="#22e6ff" filter="url(#glow)"/><circle cx="22" cy="46" r="1.8" fill="#2b3a6b" /><circle cx="29" cy="46" r="1.8" fill="#2b3a6b" /><circle cx="36" cy="46" r="1.8" fill="#2b3a6b" /><rect x="38" y="14" width="8" height="38" rx="2" fill="#05070f" /><text x="42" y="26" fill="#22e6ff" font-family="'Courier New',monospace" font-size="7" font-weight="bold" text-anchor="middle" >1</text><text x="42" y="36" fill="#22e6ff" font-family="'Courier New',monospace" font-size="7" font-weight="bold" text-anchor="middle" >0</text><text x="42" y="46" fill="#22e6ff" font-family="'Courier New',monospace" font-size="7" font-weight="bold" text-anchor="middle" >1</text><rect x="12" y="8" width="40" height="50" rx="5" fill="none" stroke="#22e6ff" stroke-width="1.6" opacity="0.5"/><rect x="20" y="57" width="24" height="4" rx="2" fill="#1c2751" />
+</svg>

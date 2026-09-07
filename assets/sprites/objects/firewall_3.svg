@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+<defs>
+<filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+  <feGaussianBlur stdDeviation="1.6" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<filter id="glowBig" x="-80%" y="-80%" width="260%" height="260%">
+  <feGaussianBlur stdDeviation="3.4" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+
+</defs>
+<rect x="4" y="54" width="56" height="8" rx="2" fill="#2a0d0d" /><path d="M8 56 Q12.5 28.382339969277382 17 56 Z" fill="#ff4d5e" opacity="0.9"/><path d="M10 56 Q12.5 41.42940398156643 15 56 Z" fill="#ffd23f" opacity="0.85"/><path d="M17 56 Q21.5 30.827351056039333 26 56 Z" fill="#ff7a3d" opacity="0.9"/><path d="M19 56 Q21.5 42.8964106336236 24 56 Z" fill="#ffd23f" opacity="0.85"/><path d="M26 56 Q30.5 24.360547304153442 35 56 Z" fill="#ff4d5e" opacity="0.9"/><path d="M28 56 Q30.5 39.01632838249206 33 56 Z" fill="#ffd23f" opacity="0.85"/><path d="M35 56 Q39.5 27.28425533697009 44 56 Z" fill="#ff7a3d" opacity="0.9"/><path d="M37 56 Q39.5 40.77055320218206 42 56 Z" fill="#ffd23f" opacity="0.85"/><path d="M44 56 Q48.5 35.20297762006521 53 56 Z" fill="#ff4d5e" opacity="0.9"/><path d="M46 56 Q48.5 45.521786572039126 51 56 Z" fill="#ffd23f" opacity="0.85"/><path d="M53 56 Q57.5 29.57451932504773 62 56 Z" fill="#ff7a3d" opacity="0.9"/><path d="M55 56 Q57.5 42.14471159502864 60 56 Z" fill="#ffd23f" opacity="0.85"/><text x="32" y="12" fill="#ff4d5e" font-family="'Courier New',monospace" font-size="7" font-weight="bold" text-anchor="middle" opacity="0.75">FIREWALL</text>
+</svg>

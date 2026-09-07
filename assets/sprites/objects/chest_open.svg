@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+<defs>
+<filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+  <feGaussianBlur stdDeviation="1.6" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<filter id="glowBig" x="-80%" y="-80%" width="260%" height="260%">
+  <feGaussianBlur stdDeviation="3.4" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<radialGradient id="chestGlow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ffd23f" stop-opacity="0.45"/><stop offset="1" stop-color="#ffd23f" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="32" cy="58" rx="20" ry="3.5" fill="#000" opacity="0.4"/><circle cx="32" cy="30" r="26" fill="url(#chestGlow)" /><rect x="10" y="12" width="44" height="16" rx="5" fill="#4a2c0c" transform="rotate(-16 32 28)"/><rect x="12" y="14" width="40" height="12" rx="4" fill="#7a4a14" transform="rotate(-16 32 28)"/><rect x="10" y="30" width="44" height="26" rx="5" fill="#4a2c0c" /><rect x="12" y="32" width="40" height="22" rx="4" fill="#7a4a14" /><text x="32" y="44" fill="#ffd23f" font-family="'Courier New',monospace" font-size="9" font-weight="bold" text-anchor="middle" filter="url(#glow)">1010</text><polygon points="24,30 28,22 32,30" fill="#ffd23f" opacity="0.75"/><polygon points="34,30 38,20 42,30" fill="#22e6ff" opacity="0.75"/>
+</svg>
