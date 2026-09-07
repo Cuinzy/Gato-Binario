@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><title>Generar tarjeta social</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>body{background:#05070f;color:#9df4ff;font-family:monospace;padding:20px}canvas{max-width:100%;border:1px solid #2b3a6b}</style>
+</head><body>
+<p id="msg">componiendo…</p>
+<canvas id="c" width="1200" height="630"></canvas>
+<script>
+/**
+ * Compone assets/og-image.png (1200x630): la imagen que se ve al compartir
+ * el enlace del juego en WhatsApp, Twitter, etc.
+ * Uso: arranca `node tools/serve.mjs` y abre http://localhost:5501/tools/make-og.html
+ */
+const load = src => new Promise((res, rej) => {
+  const im = new Image(); im.onload = () => res(im); im.onerror = rej; im.src = src;
+});
+
+(async () => {
+  await document.fonts.ready;
+  const c = document.getElementById('c');
+  const x = c.getContext('2d');
+
+  const [bg, logo, cat] = await Promise.all([
+    load('../assets/backgrounds/bg_menu.svg'),
+    load('../assets/logo.svg'),
+    load('../assets/sprites/player/cat_binario_happy_1.svg'),
+  ]);
+
+  // Fondo (recorte "cover")
+  const s = Math.max(1200 / bg.naturalWidth, 630 / bg.naturalHeight);
+  x.drawImage(bg, (1200 - bg.naturalWidth * s) / 2, (630 - bg.naturalHeight * s) / 2,
+    bg.naturalWidth * s, bg.naturalHeight * s);
+
+  // Velo oscuro para que el texto respire
+  const g = x.createLinearGradient(0, 0, 0, 630);
+  g.addColorStop(0, 'rgba(5,7,15,.55)');
+  g.addColorStop(1, 'rgba(5,7,15,.85)');
+  x.fillStyle = g; x.fillRect(0, 0, 1200, 630);
+
+  // Logo
+  const lw = 720, lh = lw * (logo.naturalHeight / logo.naturalWidth);
+  x.drawImage(logo, (1200 - lw) / 2, 92, lw, lh);
+
+  // Gato celebrando
+  x.drawImage(cat, 600 - 92, 92 + lh + 4, 184, 184);
+
+  // Franja de misión
+  x.fillStyle = 'rgba(255,63,164,.14)';
+  x.fillRect(0, 540, 1200, 62);
+  x.fillStyle = '#ff3fa4';
+  x.fillRect(0, 540, 1200, 2);
+  x.font = "700 27px Orbitron, Impact, sans-serif";
+  x.textAlign = 'center';
+  x.fillStyle = '#9df4ff';
+  x.fillText('MISIÓN 01 · SISTEMA COMPROMETIDO', 600, 580);
+
+  x.font = "18px 'Share Tech Mono', monospace";
+  x.fillStyle = '#7a89b8';
+  x.fillText('CLUB DE PROGRAMACIÓN · APRENDE A PROGRAMAR JUGANDO', 600, 618);
+
+  // Guardar en assets/og-image.png a través del servidor local
+  const data = c.toDataURL('image/png');
+  const r = await fetch('/__save?path=assets/og-image.png', { method: 'POST', body: data });
+  document.getElementById('msg').textContent =
+    r.ok ? '✔ assets/og-image.png guardado (' + Math.round(data.length / 1365) + ' KB)'
+         : '✘ no se pudo guardar (¿está corriendo node tools/serve.mjs?)';
+})();
+</script>
+</body></html>

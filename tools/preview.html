@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><title>Hoja de contacto de sprites</title>
+<style>
+  body{background:#05070f;color:#9df4ff;font-family:monospace;margin:0;padding:16px}
+  h2{color:#ff3fa4;font-size:13px;margin:14px 0 6px;letter-spacing:2px}
+  .row{display:flex;flex-wrap:wrap;gap:6px;align-items:flex-end}
+  .row img{background:#0d1730;border:1px solid #2b3a6b;image-rendering:auto}
+  .s64{width:64px;height:64px}.s96{width:96px;height:96px}
+  .s128{width:96px;height:96px}.s192{width:150px;height:150px}
+  .bg{width:230px;height:130px}
+</style></head><body>
+<h2>PLAYER — idle / walk / jump / happy / hurt</h2><div class="row" id="p"></div>
+<h2>AVATARES</h2><div class="row" id="av"></div>
+<h2>ENEMIGOS</h2><div class="row" id="e"></div>
+<h2>BOSS</h2><div class="row" id="b"></div>
+<h2>ITEMS + OBJETOS</h2><div class="row" id="i"></div>
+<h2>ENTORNO</h2><div class="row" id="env"></div>
+<h2>ICONOS</h2><div class="row" id="ic"></div>
+<h2>INSIGNIAS</h2><div class="row" id="bd"></div>
+<h2>LOGO</h2><div class="row" id="lg"></div>
+<h2>FONDOS</h2><div class="row" id="bg"></div>
+<script>
+fetch('../assets/manifest.json').then(r=>r.json()).then(m=>{
+  const put=(id,list,cls)=>{const d=document.getElementById(id);
+    list.forEach(f=>{const im=new Image();im.src='../'+f;im.className=cls;im.title=f;d.appendChild(im);});};
+  put('p',m.files.player.filter(f=>f.includes('cat_binario')),'s64');
+  put('av',m.files.avatars,'s96');
+  put('e',m.files.enemies,'s64');
+  put('b',m.files.boss,'s192');
+  put('i',m.files.items.concat(m.files.objects),'s64');
+  put('env',m.files.environment,'s64');
+  put('ic',m.files.icons,'s64');
+  put('bd',m.files.badges,'s128');
+  put('lg',m.files.logo,'bg');
+  put('bg',m.files.backgrounds,'bg');
+});
+</script></body></html>
