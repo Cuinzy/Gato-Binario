@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+<defs>
+<filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+  <feGaussianBlur stdDeviation="1.6" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<filter id="glowBig" x="-80%" y="-80%" width="260%" height="260%">
+  <feGaussianBlur stdDeviation="3.4" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+
+</defs>
+<rect x="10" y="10" width="44" height="44" rx="4" fill="#05070f" opacity="0.85"/><rect x="46.95" y="23.32" width="7.1" height="3.57" rx="0.5" fill="#22e6ff" opacity="0.71"/><rect x="13.1" y="48.95" width="12.71" height="7.84" rx="0.5" fill="#a45cff" opacity="0.62"/><rect x="39.3" y="45.04" width="11.4" height="8.2" rx="0.5" fill="#4dff9f" opacity="0.69"/><rect x="39.44" y="47.23" width="17.71" height="6.3" rx="0.5" fill="#22e6ff" opacity="0.87"/><rect x="20.77" y="40.09" width="11.39" height="5.4" rx="0.5" fill="#4dff9f" opacity="0.41"/><rect x="29.42" y="31.6" width="14.69" height="3.67" rx="0.5" fill="#ff4d5e" opacity="0.64"/><rect x="23.19" y="31.89" width="4.85" height="7.37" rx="0.5" fill="#22e6ff" opacity="0.73"/><rect x="15.87" y="48.14" width="15.94" height="9.45" rx="0.5" fill="#22e6ff" opacity="0.51"/><rect x="36.35" y="29.95" width="4.95" height="8.37" rx="0.5" fill="#ff4d5e" opacity="0.4"/><rect x="29.27" y="46.2" width="13.63" height="6.89" rx="0.5" fill="#ff4d5e" opacity="0.57"/><rect x="40.69" y="24.47" width="10.51" height="7.91" rx="0.5" fill="#ff3fa4" opacity="0.54"/><rect x="30.19" y="41.5" width="15.95" height="3.5" rx="0.5" fill="#4dff9f" opacity="0.78"/><rect x="49.15" y="34.55" width="7.93" height="7.96" rx="0.5" fill="#a45cff" opacity="0.58"/><rect x="48.21" y="40.93" width="6.54" height="9.89" rx="0.5" fill="#22e6ff" opacity="0.99"/><rect x="10" y="10" width="44" height="44" rx="4" fill="none" stroke="#ff3fa4" stroke-width="1.6" opacity="0.8"/><text x="32" y="36" fill="#eaf6ff" font-family="'Courier New',monospace" font-size="16" font-weight="bold" text-anchor="middle" opacity="0.9">?!</text>
+</svg>
