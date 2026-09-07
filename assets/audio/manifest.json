@@ -1,0 +1,7 @@
+{
+  "_ayuda": "Cuando agregues archivos de audio reales, escribe aqui su nombre logico y la ruta. El juego los usara automaticamente en lugar del sonido sintetizado. Deja las listas vacias para usar solo el sintetizador integrado.",
+  "_sfx_disponibles": ["click", "type", "step", "jump", "coin", "xp", "success", "unlock", "error", "hit", "levelup", "boss"],
+  "_music_disponibles": ["menu", "level", "boss", "victory"],
+  "sfx": {},
+  "music": {}
+}
