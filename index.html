@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GATO BINARIO — Misión 01: Sistema Comprometido</title>
+<meta name="description" content="Videojuego educativo del Club Gato Binario: ayuda al gato atrapado en un sistema corrompido por bugs. Tres rutas —Explorador, Programador y Hacker— para jugar juntos sin importar el nivel.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#05070f">
+<link rel="icon" href="assets/logo_mark.svg">
+<link rel="apple-touch-icon" href="assets/logo_mark.svg">
+
+<!-- Vista previa al compartir el enlace.
+     Tras el primer despliegue, cambia las dos URLs de abajo por la ruta
+     completa (p. ej. https://gato-binario.vercel.app/assets/og-image.png)
+     para que WhatsApp y Twitter muestren siempre la imagen. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Club Gato Binario">
+<meta property="og:title" content="GATO BINARIO — Misión 01: Sistema Comprometido">
+<meta property="og:description" content="El Gato Binario quedó atrapado dentro de un sistema corrompido por bugs. ¿Puedes programar su rescate?">
+<meta property="og:image" content="/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_CO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GATO BINARIO — Misión 01">
+<meta name="twitter:description" content="Videojuego educativo de programación del Club Gato Binario.">
+<meta name="twitter:image" content="/assets/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/screens.css">
+<link rel="stylesheet" href="css/game.css">
+<link rel="stylesheet" href="css/effects.css">
+</head>
+<body class="booting">
+
+<!-- ===================== CAPAS GLOBALES ===================== -->
+<canvas id="fx-particles" class="fx-layer" aria-hidden="true"></canvas>
+<div id="fx-scanlines" class="fx-layer" aria-hidden="true"></div>
+<div id="fx-float" class="fx-layer" aria-hidden="true"></div>
+<div id="toasts" aria-live="polite"></div>
+
+<!-- ===================== 1. ARRANQUE ===================== -->
+<section id="screen-boot" class="screen active">
+  <div class="boot-wrap">
+    <pre id="boot-log" class="boot-log"></pre>
+    <div class="boot-bar"><span id="boot-fill"></span></div>
+    <p class="boot-hint">Pulsa cualquier tecla para saltar</p>
+  </div>
+</section>
+
+<!-- ===================== 2. TÍTULO ===================== -->
+<section id="screen-title" class="screen">
+  <div class="title-bg" data-bg="menu"></div>
+  <div class="alert-strip"><span>⚠ SISTEMA COMPROMETIDO</span><span>◆ BUGS DETECTADOS</span><span>▶ SE NECESITAN PROGRAMADORES</span><span>⚠ SISTEMA COMPROMETIDO</span><span>◆ BUGS DETECTADOS</span><span>▶ SE NECESITAN PROGRAMADORES</span></div>
+
+  <div class="title-inner">
+    <img src="assets/logo.svg" alt="Gato Binario" class="title-logo">
+    <div class="title-hero">
+      <div class="hero-cat" id="title-cat"></div>
+      <div class="hero-ring"></div>
+    </div>
+    <p class="title-tag">MISIÓN 01 — <b>SISTEMA COMPROMETIDO</b></p>
+    <button class="btn btn-huge" id="btn-start">▶ INICIAR MISIÓN</button>
+    <div class="title-links">
+      <button class="btn btn-ghost" id="btn-title-profile">PERFIL</button>
+      <button class="btn btn-ghost" id="btn-title-how">¿CÓMO SE JUEGA?</button>
+    </div>
+    <p class="title-version">v1.0 · CLUB GATO BINARIO · REUNIÓN 01</p>
+  </div>
+</section>
+
+<!-- ===================== 3. JUGADOR / EQUIPO ===================== -->
+<section id="screen-player" class="screen">
+  <div class="title-bg" data-bg="map"></div>
+  <div class="panel panel-wide">
+    <h2 class="panel-title">REGISTRO DE OPERADORES</h2>
+    <p class="panel-sub">El sistema necesita identificar a la unidad de rescate.</p>
+
+    <div class="form-grid">
+      <label class="field">
+        <span>ALIAS DEL OPERADOR</span>
+        <input type="text" id="in-alias" maxlength="18" placeholder="ej. NeoCat" autocomplete="off">
+      </label>
+      <label class="field">
+        <span>NOMBRE DEL EQUIPO</span>
+        <input type="text" id="in-team" maxlength="20" placeholder="ej. ByteCats" autocomplete="off">
+      </label>
+    </div>
+    <div class="team-suggest" id="team-suggest"></div>
+
+    <h3 class="sub-title">SELECCIONA TU GATO BINARIO</h3>
+    <div class="avatar-grid" id="avatar-grid"></div>
+
+    <div class="panel-actions">
+      <button class="btn btn-ghost" id="btn-player-back">◀ VOLVER</button>
+      <button class="btn btn-big" id="btn-player-go">CONECTAR AL SISTEMA ▶</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 4. MAPA DE ZONAS ===================== -->
+<section id="screen-map" class="screen">
+  <div class="title-bg" data-bg="map"></div>
+  <header class="topbar" id="topbar-map"></header>
+  <div class="map-wrap">
+    <h2 class="map-title">MAPA DEL SISTEMA</h2>
+    <div class="map-track" id="map-track"></div>
+  </div>
+</section>
+
+<!-- ===================== 5. NIVEL ===================== -->
+<section id="screen-level" class="screen">
+  <header class="topbar" id="topbar-level"></header>
+
+  <div class="level-layout">
+    <!-- Columna izquierda: escenario -->
+    <div class="stage-col">
+      <div class="stage-head">
+        <div>
+          <span class="zone-tag" id="lv-tag">ZONA 01</span>
+          <h2 id="lv-name">Arranque del sistema</h2>
+        </div>
+        <div class="stage-head-right">
+          <button class="btn btn-mini" id="btn-brief">📡 BRIEFING</button>
+          <button class="btn btn-mini" id="btn-map-back">🗺 MAPA</button>
+        </div>
+      </div>
+
+      <div class="stage-frame">
+        <canvas id="game-canvas"></canvas>
+        <div class="stage-overlay" id="stage-overlay"></div>
+        <div class="dialog-bubble" id="dialog-bubble" hidden></div>
+      </div>
+
+      <div class="stage-foot">
+        <div class="counters" id="lv-counters"></div>
+        <div class="exec-controls">
+          <button class="btn btn-run" id="btn-run">▶ EJECUTAR</button>
+          <button class="btn btn-warn" id="btn-stop" hidden>■ DETENER</button>
+          <button class="btn btn-ghost" id="btn-reset">↻ REINICIAR</button>
+          <label class="speed">VELOCIDAD
+            <input type="range" id="in-speed" min="1" max="5" value="3">
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna derecha: programación -->
+    <aside class="prog-col">
+      <div class="route-tabs" id="route-tabs">
+        <button class="route-tab active" data-route="explorador"><b>EXPLORADOR</b><small>bloques</small></button>
+        <button class="route-tab" data-route="programador"><b>PROGRAMADOR</b><small>código</small></button>
+        <button class="route-tab" data-route="hacker"><b>HACKER</b><small>retos</small></button>
+      </div>
+
+      <!-- RUTA EXPLORADOR -->
+      <div class="route-pane active" id="pane-explorador">
+        <div class="palette-box">
+          <h4>BLOQUES DISPONIBLES</h4>
+          <div class="palette" id="palette"></div>
+        </div>
+        <div class="seq-box">
+          <h4>SECUENCIA DE EJECUCIÓN <span class="seq-count" id="seq-count">0</span></h4>
+          <div class="sequence" id="sequence"></div>
+          <div class="seq-actions">
+            <button class="btn btn-mini btn-ghost" id="btn-clear">🗑 VACIAR</button>
+            <button class="btn btn-mini btn-ghost" id="btn-undo">↶ DESHACER</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- RUTA PROGRAMADOR -->
+      <div class="route-pane" id="pane-programador">
+        <div class="code-box">
+          <h4>EDITOR — GatoScript</h4>
+          <textarea id="code-editor" spellcheck="false"></textarea>
+          <div class="code-msg" id="code-msg"></div>
+          <div class="seq-actions">
+            <button class="btn btn-mini" id="btn-code-apply">✓ COMPILAR A BLOQUES</button>
+            <button class="btn btn-mini btn-ghost" id="btn-code-from">⇄ TRAER DESDE BLOQUES</button>
+          </div>
+        </div>
+        <div class="ref-box">
+          <h4>REFERENCIA RÁPIDA</h4>
+          <div id="code-ref"></div>
+        </div>
+      </div>
+
+      <!-- RUTA HACKER -->
+      <div class="route-pane" id="pane-hacker">
+        <div class="hacker-box" id="hacker-box"></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ===================== 6. BOSS ===================== -->
+<section id="screen-boss" class="screen">
+  <div class="title-bg" data-bg="boss"></div>
+  <header class="topbar" id="topbar-boss"></header>
+
+  <div class="boss-layout">
+    <div class="boss-stage">
+      <div class="boss-hpbar">
+        <div class="boss-hp-label"><span>BUG SUPREMO</span><span id="boss-hp-text">100%</span></div>
+        <div class="boss-hp-track"><div class="boss-hp-fill" id="boss-hp-fill"></div></div>
+        <div class="boss-phases" id="boss-phases"></div>
+      </div>
+      <div class="boss-art">
+        <img id="boss-img" src="assets/sprites/boss/boss_idle_p1_1.svg" alt="Bug Supremo">
+        <div class="boss-cat"><img id="boss-cat-img" src="assets/sprites/player/cat_binario_idle_1.svg" alt=""></div>
+      </div>
+      <div class="boss-say" id="boss-say"></div>
+    </div>
+    <div class="boss-panel" id="boss-panel"></div>
+  </div>
+</section>
+
+<!-- ===================== 7. VICTORIA ===================== -->
+<section id="screen-victory" class="screen">
+  <div class="title-bg" data-bg="zone4"></div>
+  <div class="victory-inner">
+    <h1 class="vic-title">SISTEMA RESTAURADO</h1>
+    <h2 class="vic-sub">GATO BINARIO LIBERADO</h2>
+    <div class="vic-cat"><img id="vic-cat-img" src="assets/sprites/player/cat_binario_happy_2.svg" alt=""></div>
+    <div class="vic-stats" id="vic-stats"></div>
+    <div class="vic-next">
+      <p class="vic-done">MISIÓN 01 COMPLETADA</p>
+      <div class="vic-locked">
+        <p class="vic-m2">MISIÓN 02</p>
+        <div class="vic-bar">██████████</div>
+        <p class="vic-lock">🔒 BLOQUEADA</p>
+        <p class="vic-soon">PRÓXIMAMENTE EN GATO BINARIO</p>
+      </div>
+    </div>
+    <div class="panel-actions center">
+      <button class="btn btn-ghost" id="btn-vic-map">🗺 VOLVER AL MAPA</button>
+      <button class="btn btn-big" id="btn-vic-profile">VER PERFIL DEL EQUIPO</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OVERLAYS ===================== -->
+<div class="overlay" id="ov-profile" hidden>
+  <div class="ov-card">
+    <button class="ov-close" data-close="ov-profile">✕</button>
+    <div id="profile-body"></div>
+  </div>
+</div>
+
+<div class="overlay" id="ov-teacher" hidden>
+  <div class="ov-card">
+    <button class="ov-close" data-close="ov-teacher">✕</button>
+    <h2 class="panel-title small">PANEL DEL ORGANIZADOR</h2>
+    <div id="teacher-body"></div>
+  </div>
+</div>
+
+<div class="overlay" id="ov-brief" hidden>
+  <div class="ov-card">
+    <button class="ov-close" data-close="ov-brief">✕</button>
+    <div id="brief-body"></div>
+  </div>
+</div>
+
+<div class="overlay" id="ov-how" hidden>
+  <div class="ov-card">
+    <button class="ov-close" data-close="ov-how">✕</button>
+    <div id="how-body"></div>
+  </div>
+</div>
+
+<div class="overlay" id="ov-result" hidden>
+  <div class="ov-card result-card">
+    <div id="result-body"></div>
+  </div>
+</div>
+
+<!-- ===================== CONTROLES FLOTANTES ===================== -->
+<div class="float-controls">
+  <button class="icon-btn" id="btn-sfx" title="Sonido"><img src="assets/icons/sound_on.svg" alt="Sonido"></button>
+  <button class="icon-btn" id="btn-music" title="Música"><img src="assets/icons/music_on.svg" alt="Música"></button>
+  <button class="icon-btn" id="btn-projector" title="Modo proyector"><img src="assets/icons/projector.svg" alt="Proyector"></button>
+  <button class="icon-btn" id="btn-fullscreen" title="Pantalla completa"><img src="assets/icons/fullscreen.svg" alt="Pantalla completa"></button>
+  <button class="icon-btn subtle" id="btn-teacher" title="Panel del organizador"><img src="assets/icons/teacher.svg" alt="Organizador"></button>
+</div>
+
+<!-- ===================== TERMINAL DE AMBIENTE ===================== -->
+<div class="mini-term" id="mini-term">
+  <div class="mini-term-head"><span>◈ system.log</span><button id="btn-term-toggle">▾</button></div>
+  <pre id="mini-term-body"></pre>
+</div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

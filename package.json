@@ -1,0 +1,15 @@
+{
+  "name": "gato-binario",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Videojuego educativo de programacion del Club Gato Binario. Sitio estatico: HTML5 + CSS3 + JavaScript vanilla, sin build.",
+  "type": "module",
+  "scripts": {
+    "dev": "node tools/serve.mjs",
+    "sprites": "node tools/generate-sprites.mjs",
+    "test": "node tools/validate-sprites.mjs && node tools/check-paths.mjs && node tools/test-levels.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
