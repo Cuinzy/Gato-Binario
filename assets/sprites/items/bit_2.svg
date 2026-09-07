@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+<defs>
+<filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+  <feGaussianBlur stdDeviation="1.6" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<filter id="glowBig" x="-80%" y="-80%" width="260%" height="260%">
+  <feGaussianBlur stdDeviation="3.4" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+
+</defs>
+<ellipse cx="32" cy="55" rx="9.44" ry="3" fill="#000" opacity="0.3"/><polygon points="32,13 42.2,22.5 42.2,41.5 32,51 21.8,41.5 21.8,22.5" fill="#ff7a3d" /><polygon points="32,16 40.59,24 40.59,40 32,48 23.41,40 23.41,24" fill="#ffd23f" /><polygon points="32,21 37.91,26.5 37.91,37.5 32,43 26.09,37.5 26.09,26.5" fill="#fff6c9" opacity="0.5"/><text x="32" y="39" fill="#7a4b00" font-family="'Courier New',monospace" font-size="20" font-weight="bold" text-anchor="middle" >0</text><polygon points="32,13 42.2,22.5 42.2,41.5 32,51 21.8,41.5 21.8,22.5" fill="none" stroke="#eaf6ff" stroke-width="1" opacity="0.35"/>
+</svg>

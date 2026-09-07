@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+<defs>
+<filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+  <feGaussianBlur stdDeviation="1.6" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<filter id="glowBig" x="-80%" y="-80%" width="260%" height="260%">
+  <feGaussianBlur stdDeviation="3.4" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+
+</defs>
+<rect x="0" y="0" width="64" height="64" rx="0" fill="#0f1c2e" /><rect x="2" y="2" width="60" height="60" rx="3" fill="#152a3f" /><rect x="2" y="2" width="60" height="60" rx="3" fill="none" stroke="#9df4ff" stroke-width="1" opacity="0.28"/><circle cx="8" cy="8" r="1.6" fill="#9df4ff" opacity="0.5"/><circle cx="56" cy="8" r="1.6" fill="#9df4ff" opacity="0.5"/><circle cx="8" cy="56" r="1.6" fill="#9df4ff" opacity="0.5"/><circle cx="56" cy="56" r="1.6" fill="#9df4ff" opacity="0.5"/><g opacity="0.35" stroke="#9df4ff" stroke-width="0.8" fill="none" stroke-linecap="round"><path d="M41.87 46.18 L48.87 46.18 L48.87 42.18"/><circle cx="48.87" cy="42.18" r="1" fill="#9df4ff" stroke="none"/><path d="M36.79 43.45 L48.13 43.45 L48.13 39.45"/><circle cx="48.13" cy="39.45" r="1" fill="#9df4ff" stroke="none"/><path d="M46.55 44.51 L46.55 58 L42.55 58"/><circle cx="42.55" cy="58" r="1" fill="#9df4ff" stroke="none"/><path d="M21.62 52.62 L29.87 52.62 L29.87 56.62"/><circle cx="29.87" cy="56.62" r="1" fill="#9df4ff" stroke="none"/><path d="M19.19 6.99 L19.19 24.43 L15.19 24.43"/><circle cx="15.19" cy="24.43" r="1" fill="#9df4ff" stroke="none"/></g>
+</svg>

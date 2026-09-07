@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+<defs>
+<filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+  <feGaussianBlur stdDeviation="1.6" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<filter id="glowBig" x="-80%" y="-80%" width="260%" height="260%">
+  <feGaussianBlur stdDeviation="3.4" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<radialGradient id="starGlow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ffd23f" stop-opacity="0.55"/><stop offset="1" stop-color="#ffd23f" stop-opacity="0"/></radialGradient>
+</defs>
+<circle cx="32" cy="32" r="26" fill="url(#starGlow)" /><polygon points="32,11.32 37.25,24.78 51.67,25.61 40.49,34.76 44.16,48.73 32,40.93 19.84,48.73 23.51,34.76 12.33,25.61 26.75,24.78" fill="#ff7a3d" /><polygon points="32,15.04 36.3,26.08 48.13,26.76 38.96,34.26 41.97,45.72 32,39.32 22.03,45.72 25.04,34.26 15.87,26.76 27.7,26.08" fill="#ffd23f" /><circle cx="28" cy="27" r="3.2" fill="#eaf6ff" opacity="0.7"/>
+</svg>

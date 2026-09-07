@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+<defs>
+<filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+  <feGaussianBlur stdDeviation="1.6" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<filter id="glowBig" x="-80%" y="-80%" width="260%" height="260%">
+  <feGaussianBlur stdDeviation="3.4" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+
+</defs>
+<rect x="0" y="0" width="64" height="64" rx="0" fill="#080d1c" /><rect x="1.5" y="1.5" width="61" height="61" rx="5" fill="#331c42" /><rect x="3.5" y="3.5" width="57" height="52" rx="4" fill="#4a2a5e" /><g opacity="0.4" stroke="#ff3fa4" stroke-width="0.8" fill="none" stroke-linecap="round"><path d="M18.11 14.61 L18.11 22.88 L14.11 22.88"/><circle cx="14.11" cy="22.88" r="1" fill="#ff3fa4" stroke="none"/><path d="M24.61 23.75 L24.61 32.17 L20.61 32.17"/><circle cx="20.61" cy="32.17" r="1" fill="#ff3fa4" stroke="none"/><path d="M39.15 8.22 L52.43 8.22 L52.43 12.22"/><circle cx="52.43" cy="12.22" r="1" fill="#ff3fa4" stroke="none"/><path d="M31.29 38.62 L35.22 38.62 L35.22 42.62"/><circle cx="35.22" cy="42.62" r="1" fill="#ff3fa4" stroke="none"/><path d="M44.21 20.07 L44.21 32.69 L40.21 32.69"/><circle cx="40.21" cy="32.69" r="1" fill="#ff3fa4" stroke="none"/><path d="M12.11 11.18 L12.11 24.48 L8.11 24.48"/><circle cx="8.11" cy="24.48" r="1" fill="#ff3fa4" stroke="none"/></g><rect x="3.5" y="3.5" width="57" height="8" rx="4" fill="#eaf6ff" opacity="0.08"/><rect x="1.5" y="1.5" width="61" height="61" rx="5" fill="none" stroke="#ff3fa4" stroke-width="1.6" opacity="0.55"/><circle cx="12" cy="12" r="2.2" fill="#ff3fa4" opacity="0.7" filter="url(#glow)"/><circle cx="52" cy="52" r="2.2" fill="#ff3fa4" opacity="0.5"/>
+</svg>
